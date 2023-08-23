@@ -1,38 +1,94 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<metahttp-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="UTF-8">
-		<title>チャット</title>
-	</head>
-	<style>h1,h2,h3,p,a,span{color: white;}</style>
-	<body style="background-color:black">
-		<div style="margin-left: 2%;margin-right: 2%;margin-top: 3%;">
-		<h2>チャット(掲示板型)</h2>
-		<?php
-		if(isset($_COOKIE["username"])){
-			$username = $_COOKIE['username'];
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>チャット</title>
+	<style>
+		body {
+			background-color: #222;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			color: white;
 		}
-		ini_set("display_errors", "Off");
-		$form = '<form action="input.php" method="post"><span style="color:white">名前 </span><input type="text" size="10" autocomplete="name" name="name" value="' . $username . '"><br><span style="color:white">本文 </span><input type="text" size="30" autocomplete="no" name="maintext"><span> </span><input type="submit" value="送信"></form>';
-		print $form;
-		?>
-		<a href="index.php"><button>メッセージ更新</button></a><span> </span><a href="UPcode.php"><button>script送信用</button></a><span> </span><a href="upfile.php"><button>ファイルUP</button></a><span> </span><a href="archive.php"><button>アーカイブ</button></a>
+		.container {
+			margin: 2% auto;
+			max-width: 800px;
+			padding: 20px;
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+		}
+		h2 {
+			color: #FF9800;
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			margin-top: 10px;
+		}
+		form input[type="text"] {
+			padding: 5px;
+			margin-bottom: 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: rgba(255, 255, 255, 0.1);
+			color: white;
+		}
+		form input[type="submit"], a button {
+			padding: 5px 10px;
+			border: none;
+			border-radius: 5px;
+			background-color: #FF9800;
+			color: white;
+			cursor: pointer;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		form input[type="submit"]:hover, a button:hover {
+			background-color: #FFB74D;
+		}
+		hr {
+			margin: 20px 0;
+			border: none;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		.log-entry {
+			padding-left: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>チャット(掲示板型)</h2>
+		<form action="input.php" method="post">
+			<span>名前 </span>
+			<input type="text" size="10" autocomplete="name" name="name" value="<?php echo isset($_COOKIE['username']) ? $_COOKIE['username'] : ''; ?>">
+			<br>
+			<span>本文 </span>
+			<input type="text" size="30" autocomplete="no" name="maintext">
+			<input type="submit" value="送信">
+		</form>
+		<a href="index.php"><button>メッセージ更新</button></a>
+		<a href="UPcode.php"><button>script送信用</button></a>
+		<a href="upfile.php"><button>ファイルUP</button></a>
+		<a href="archive.php"><button>アーカイブ</button></a>
 		<hr>
 		<br>
-		<style>p,span{padding-left:5px}</style>
-			<?php
-				$fp = fopen('./date/publiclog.txt','r');
-				$maneof = 0;
-				for($i = 0;!feof($fp);$i++)
-				{
+		<?php
+			$fp = fopen('./date/publiclog.txt','r');
+			$maneof = 0;
+			for($i = 0;!feof($fp);$i++)
+			{
 				$line[$i] = fgets($fp);
 				$maneof++;
-				}
-				$maneof--;
-				for(; $maneof >= 0; $maneof--) { 
-					print $line[$maneof];
-				}
-			?>
-	</body>
+			}
+			$maneof--;
+			for(; $maneof >= 0; $maneof--) { 
+				echo '<div class="log-entry">' . $line[$maneof] . '</div>';
+			}
+		?>
+	</div>
+</body>
 </html>
-<!--このチャットシステムは籘原梓 @Azusa468_Linuxが作成しました。-->
