@@ -1,0 +1,3 @@
+<FilesMatch "\.(php|cgi)$">
+    Deny from all
+</FilesMatch>
