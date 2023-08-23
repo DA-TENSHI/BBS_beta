@@ -22,7 +22,7 @@
 	if (!strlen($_POST['maintext'])) {
 		header('Location: index.php');
 	}else {
-		$inter = '<div style="border: 2px solid white;padding-left:10px;padding-bottom:10px">'."<p>".$_POST['name'] ."　　".$todaydate."</p>". $_POST['maintext'] ."</div>". "\n";
+		$inter = '<div style="border: 2px solid white;padding-left:10px;padding-bottom:10px">'."<p>".htmlspecialchars($_POST['name'], ENT_QUOTES|ENT_HTML5, "UTF-8")."　　".$todaydate."</p>". $_POST['maintext'] ."</div>". "\n";
 	inputter($inter);
     	header('Location: index.php');
 	}

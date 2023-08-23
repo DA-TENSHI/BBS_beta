@@ -25,8 +25,9 @@ if (!strlen($_POST['maintext'])) {
     header('Location: index.php');
 } else {
     $user_ip = isset($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
-    $inter = "<p>".htmlspecialchars($_POST['name'], ENT_QUOTES|ENT_HTML5, "UTF-8") . " : " . $_POST['maintext'] . "　　　". $todaydate. " IP: " . $user_ip . "</p>" ."\n";
+    $inter = "<p>".htmlspecialchars($_POST['name'], ENT_QUOTES|ENT_HTML5, "UTF-8") . " : " . htmlspecialchars($_POST['maintext'], ENT_QUOTES|ENT_HTML5, "UTF-8") . "　　　". $todaydate. " IP: " . $user_ip . "</p>" ."\n";
     inputter($inter);
     header('Location: index.php');
 }
 ?>
+
