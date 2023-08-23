@@ -19,7 +19,7 @@
 	if (!strlen($_POST['maintext'])) {
 		header('Location: index.php');
 	}else {
-		$inter = "<p>".htmlspecialchars($_POST['name'], ENT_QUOTES|ENT_HTML5, "UTF-8") . " : " . $_POST['maintext'] ."　　　". $todaydate. "</p>" ."\n";
+		$inter = "<p>".htmlspecialchars($_POST['name'], ENT_QUOTES|ENT_HTML5, "UTF-8") . " : " . htmlspecialchars($_POST['maintext'], ENT_QUOTES|ENT_HTML5, "UTF-8") ."　　　". $todaydate. "</p>" ."\n";
 	inputter($inter);
     	header('Location: index.php');
 	}
