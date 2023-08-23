@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 RUN apt-get update && \
-    apt-get install -y nginx php8.0-fpm
+    apt-get install -y nginx php-fpm
 
 WORKDIR /app
 
