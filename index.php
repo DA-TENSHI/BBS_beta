@@ -73,7 +73,6 @@
             <input type="submit" value="送信">
         </form>
         <a href="index.php"><button>メッセージ更新</button></a>
-        <a href="UPcode.php"><button>script送信用</button></a>
         <a href="upfile.php"><button>ファイルUP</button></a>
         <a href="archive.php"><button>アーカイブ</button></a>
         <hr>
