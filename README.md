@@ -7,5 +7,6 @@
 
 <hr>
 <p>2023/04/24  ファイルアップロード時のパス指定が間違っていたので修正</p>
+<p>2023/08/23  アップロードされた.php .cgiの.hataccessでの実行禁止+htmlspecialcharの追加</p>
 
 <p>2023/07/15　<a href="https://github.com/LibertiaTeam/PHP-web-BBS-chattingsystem"><span>公開先を変更しました</span></a></p>
