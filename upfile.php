@@ -25,7 +25,7 @@ try{
             	echo "<p>"."./receive/".$count."-".$_FILES['file']['name']."として保存されました"."</p>";
 				echo '<h2>UP完了</h2>';
 				//log
-            	$putting='<p><span style="color:yellow">'.$_COOKIE['username'].'さんが</span><a style="color:yellow" href="'."./receive/".$count."-".$_FILES['file']['name'].'"target="_blank" rel="noopener noreferrer">ファイル</a><span style="color:yellow">をUPしました。'."  ".$todaydate.'</span>'."</p>"."\n";
+            	$putting='<p><span style="color:yellow">'.htmlspecialchars($_COOKIE['username'], ENT_QUOTES|ENT_HTML5, "UTF-8").'さんが</span><a style="color:yellow" href="'."./receive/".$count."-".$_FILES['file']['name'].'"target="_blank" rel="noopener noreferrer">ファイル</a><span style="color:yellow">をUPしました。'."  ".$todaydate.'</span>'."</p>"."\n";
             	$count++;
 				$filename = fopen('./date/publiclog.txt',"a");
 				fputs($filename, $putting);
