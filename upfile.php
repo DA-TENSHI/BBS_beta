@@ -6,7 +6,7 @@
 	<title>ファイルアップローダー</title>
 	<style>
 		body {
-			background-color: #222;
+			background-color: #121212;
 			font-family: Arial, sans-serif;
 			margin: 0;
 			padding: 0;
@@ -21,7 +21,7 @@
 			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 		}
 		h2 {
-			color: #FF9800;
+			color: #FFFFFF;
 		}
 		form {
 			display: flex;
@@ -42,13 +42,13 @@
 			cursor: pointer;
 		}
 		form input[type="submit"]:hover {
-			background-color: #FFB74D;
+			background-color: #4d7fff;
 		}
 		p {
 			padding-left: 5px;
 		}
 		a {
-			color: #FF9800;
+			color: #00ffff;
 			text-decoration: none;
 		}
 		a:hover {
